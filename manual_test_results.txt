@@ -1,0 +1,30 @@
+News: India has significantly reduced its malaria incidence and mortality, exiting the High Burden High Impact group of endemic countries in 2024, according to the World Health Organization's World Malaria Report. The malaria caseload in India decreased by 69% from 6.4 million in 2017 to 2 million in 2023, and estimated malaria deaths decreased by 68% from 11,100 to 3,500 in the same period.
+Logistic Regression: Fake News (Confidence: 0.86)
+Decision Tree: Fake News (Confidence: 1.00)
+Gradient Boosting: Fake News (Confidence: 0.99)
+Random Forest: Fake News (Confidence: 0.77)
+------------------------------
+News: The head of a conservative Republican faction in the U.S. Congress, who voted this month for a huge expansion of the national debt to pay for tax cuts, called himself a â€œfiscal conservativeâ€ on Sunday and urged budget restraint in 2018.
+Logistic Regression: Real News (Confidence: 0.83)
+Decision Tree: Fake News (Confidence: 1.00)
+Gradient Boosting: Fake News (Confidence: 0.99)
+Random Forest: Real News (Confidence: 0.53)
+------------------------------
+News:  U.S. Republican Senator Bob Corker, a staunch fiscal hawk who has been a critic of emerging tax legislation, said on Friday he will support the sweeping tax overhaul that Republicans hope to approve next week. 
+Logistic Regression: Real News (Confidence: 0.96)
+Decision Tree: Fake News (Confidence: 1.00)
+Gradient Boosting: Fake News (Confidence: 0.99)
+Random Forest: Real News (Confidence: 0.68)
+------------------------------
+News:  U.S. Republican presidential candidate Donald Trump came to the small town of Plymouth in the New Hampshire mountains on Sunday and promised to lower prescription drug prices, improve education and help heroin addicts get treatment. 
+Logistic Regression: Real News (Confidence: 0.59)
+Decision Tree: Fake News (Confidence: 1.00)
+Gradient Boosting: Fake News (Confidence: 0.99)
+Random Forest: Fake News (Confidence: 0.50)
+------------------------------
+News: hello
+Logistic Regression: Fake News (Confidence: 0.90)
+Naive Bayes: Fake News (Confidence: 0.75)
+Random Forest: Fake News (Confidence: 1.00)
+Gradient Boosting: Fake News (Confidence: 1.00)
+------------------------------
