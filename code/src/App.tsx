@@ -30,22 +30,22 @@ function App() {
 
         <main className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="p-6 mb-8">
-              <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                <BrainCircuitIcon className="h-6 w-6" />
+            <Card className="p-4 sm:p-6 mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-2">
+                <BrainCircuitIcon className="h-5 w-5 sm:h-6 sm:w-6" />
                 AI-Powered News Analysis
               </h2>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-sm sm:text-base text-muted-foreground mb-6">
                 Enter a news article or URL to analyze its authenticity using our advanced machine learning models.
               </p>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Input
                   placeholder="Paste news article or URL here..."
                   value={newsInput}
                   onChange={(e) => setNewsInput(e.target.value)}
                   className="flex-1"
                 />
-                <Button>Analyze</Button>
+                <Button className="w-full sm:w-auto">Analyze</Button>
               </div>
             </Card>
 
@@ -60,14 +60,14 @@ function App() {
               <TabsContent value="game">
                 <div className="grid gap-6">
                   {!currentGame ? (
-                    <Card className="p-6">
-                      <div className="grid md:grid-cols-3 gap-4">
+                    <Card className="p-4 sm:p-6">
+                      <div className="grid sm:grid-cols-3 gap-4">
                         <div className="space-y-4">
                           <div className="flex items-center gap-2">
                             <GamepadIcon className="h-5 w-5" />
                             <h3 className="text-lg font-semibold">Fake News Quiz</h3>
                           </div>
-                          <p className="text-muted-foreground">Test your ability to spot fake news in this interactive quiz.</p>
+                          <p className="text-sm text-muted-foreground">Test your ability to spot fake news in this interactive quiz.</p>
                           <Button variant="outline" className="w-full" onClick={() => setCurrentGame('quiz')}>
                             Start Quiz
                           </Button>
@@ -77,7 +77,7 @@ function App() {
                             <Zap className="h-5 w-5" />
                             <h3 className="text-lg font-semibold">Speed Challenge</h3>
                           </div>
-                          <p className="text-muted-foreground">Race against time to identify fake news as quickly as possible.</p>
+                          <p className="text-sm text-muted-foreground">Race against time to identify fake news as quickly as possible.</p>
                           <Button variant="outline" className="w-full" onClick={() => setCurrentGame('speed')}>
                             Start Challenge
                           </Button>
@@ -87,7 +87,7 @@ function App() {
                             <TrophyIcon className="h-5 w-5" />
                             <h3 className="text-lg font-semibold">Leaderboard</h3>
                           </div>
-                          <p className="text-muted-foreground">See how you rank against other fake news detectors.</p>
+                          <p className="text-sm text-muted-foreground">See how you rank against other fake news detectors.</p>
                           <Button variant="outline" className="w-full" onClick={() => setCurrentGame('leaderboard')}>
                             View Leaderboard
                           </Button>
