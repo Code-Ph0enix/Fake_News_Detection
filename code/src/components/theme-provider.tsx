@@ -58,7 +58,9 @@ export function ThemeProvider({
 
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
-      {children}
+      <div className="flex justify-center items-center w-screen">
+        {children}
+      </div>
     </ThemeProviderContext.Provider>
   );
 }
