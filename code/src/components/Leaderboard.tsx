@@ -2,11 +2,11 @@ import { Card } from '@/components/ui/card';
 import { Trophy, Medal, Award } from 'lucide-react';
 
 const leaderboardData = [
-  { name: "Alex Thompson", score: 95, games: 20 },
-  { name: "Sarah Chen", score: 90, games: 15 },
-  { name: "Mike Johnson", score: 85, games: 18 },
-  { name: "Emma Davis", score: 80, games: 12 },
-  { name: "James Wilson", score: 75, games: 10 },
+  { name: "Aakriti Mehta", score: 95, games: 20 },
+  { name: "Khushi Menpara", score: 90, games: 15 },
+  { name: "Eeshanaya Joshi", score: 85, games: 18 },
+  { name: "Romil Lodaya ", score: 80, games: 12 },
+  { name: "Harsh Nagrani ", score: 75, games: 10 },
 ];
 
 export function Leaderboard() {

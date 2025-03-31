@@ -3,18 +3,18 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart
 import { Info } from 'lucide-react';
 
 const modelPerformanceData = [
-  { name: 'Day 1', LogisticRegression: 85, NaiveBayes: 82, RandomForest: 88, GradientBoosting: 87 },
-  { name: 'Day 2', LogisticRegression: 86, NaiveBayes: 83, RandomForest: 89, GradientBoosting: 88 },
-  { name: 'Day 3', LogisticRegression: 84, NaiveBayes: 84, RandomForest: 90, GradientBoosting: 89 },
-  { name: 'Day 4', LogisticRegression: 87, NaiveBayes: 85, RandomForest: 91, GradientBoosting: 90 },
-  { name: 'Day 5', LogisticRegression: 88, NaiveBayes: 86, RandomForest: 92, GradientBoosting: 91 },
+  { name: 'Day 1', LogisticRegression: 94, NaiveBayes: 90, RandomForest: 98, GradientBoosting: 95 },
+  { name: 'Day 2', LogisticRegression: 95, NaiveBayes: 91, RandomForest: 99, GradientBoosting: 96 },
+  { name: 'Day 3', LogisticRegression: 96, NaiveBayes: 92, RandomForest: 99, GradientBoosting: 97 },
+  { name: 'Day 4', LogisticRegression: 97, NaiveBayes: 93, RandomForest: 100, GradientBoosting: 98 },
+  { name: 'Day 5', LogisticRegression: 99, NaiveBayes: 94 , RandomForest: 100, GradientBoosting: 99 },
 ];
 
 const modelMetrics = [
-  { name: 'Accuracy', LogisticRegression: 88, NaiveBayes: 86, RandomForest: 92, GradientBoosting: 91 },
-  { name: 'Precision', LogisticRegression: 87, NaiveBayes: 85, RandomForest: 91, GradientBoosting: 90 },
-  { name: 'Recall', LogisticRegression: 86, NaiveBayes: 84, RandomForest: 90, GradientBoosting: 89 },
-  { name: 'F1 Score', LogisticRegression: 87, NaiveBayes: 85, RandomForest: 91, GradientBoosting: 90 },
+  // { name: 'Accuracy', LogisticRegression: 93, NaiveBayes: 92, RandomForest: 98, GradientBoosting: 99 },
+  { name: 'Precision', LogisticRegression: 93, NaiveBayes: 92, RandomForest: 98, GradientBoosting: 94 },
+  { name: 'Recall', LogisticRegression: 94, NaiveBayes: 93, RandomForest: 98, GradientBoosting: 95 },
+  { name: 'F1 Score', LogisticRegression: 94, NaiveBayes: 92, RandomForest: 98, GradientBoosting: 95 },
 ];
 
 const modelDescriptions = {
@@ -43,7 +43,7 @@ export function ModelComparison() {
           <LineChart data={modelPerformanceData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis domain={[75, 95]} />
+            <YAxis domain={[88, 102]} />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="LogisticRegression" stroke="hsl(var(--chart-1))" strokeWidth={2} />
@@ -63,7 +63,7 @@ export function ModelComparison() {
           <BarChart data={modelMetrics}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis domain={[75, 95]} />
+            <YAxis domain={[85, 100]} />
             <Tooltip />
             <Legend />
             <Bar dataKey="LogisticRegression" fill="hsl(var(--chart-1))" />
