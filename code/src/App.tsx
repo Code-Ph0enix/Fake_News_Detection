@@ -11,12 +11,19 @@ import { SpeedChallenge } from '@/components/SpeedChallenge';
 import { Leaderboard } from '@/components/Leaderboard';
 import { ModelComparison } from '@/components/ModelComparison';
 
+// Define interfaces
+interface PredictionResult {
+  [model: string]: string;
+}
+
+type GameType = 'quiz' | 'speed' | 'leaderboard' | null;
+
 function App() {
-  const [newsInput, setNewsInput] = useState('');
-  const [predictions, setPredictions] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [currentGame, setCurrentGame] = useState<'quiz' | 'speed' | 'leaderboard' | null>(null);
+  const [newsInput, setNewsInput] = useState<string>('');
+  const [predictions, setPredictions] = useState<PredictionResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [currentGame, setCurrentGame] = useState<GameType>(null);
   
   const handleAnalyze = async () => {
     if (!newsInput.trim()) return;
@@ -98,20 +105,10 @@ function App() {
                   </ul>
                 </div>
               )}
-
             </Card>
 
-            {/* <Tabs defaultValue="models" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 gap-2 text-lg">
-                <TabsTrigger value="models">Model Accuracy Comparison</TabsTrigger>
-                <TabsTrigger value="models">Model Accuracy Comparison</TabsTrigger>
-              </TabsList>
-              <TabsContent value="models" className="w-full">
-                <ModelComparison predictions={predictions} />
-              </TabsContent>
-            </Tabs> */}
             <Tabs defaultValue="models" className="mb-8">
-              <TabsList className="grid w-full grid-cols-2  gap-2">
+              <TabsList className="grid w-full grid-cols-2 gap-2">
                 <TabsTrigger value="models">Model Comparison</TabsTrigger>
                 <TabsTrigger value="game">Educational Games</TabsTrigger>
               </TabsList>

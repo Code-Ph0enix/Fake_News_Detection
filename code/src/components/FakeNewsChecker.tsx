@@ -1,16 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
 
+// Define interfaces
+interface PredictionResult {
+  [model: string]: string;
+}
+
 const FakeNewsChecker = () => {
-    const [text, setText] = useState("");
-    const [result, setResult] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [text, setText] = useState<string>("");
+    const [result, setResult] = useState<PredictionResult | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleCheckNews = async () => {
         if (!text.trim()) return;
         setLoading(true);
         try {
-            const response = await axios.post("http://127.0.0.1:5000/predict", { text });
+            const response = await axios.post<PredictionResult>("http://127.0.0.1:5000/predict", { text });
             setResult(response.data);
         } catch (error) {
             console.error("Error checking news:", error);
@@ -23,7 +28,7 @@ const FakeNewsChecker = () => {
             <h1 className="text-2xl font-bold mb-4">Fake News Detector</h1>
             <textarea
                 className="w-full md:w-2/3 p-3 border rounded-lg shadow-sm"
-                rows="4"
+                rows={4}
                 placeholder="Enter news text here..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}

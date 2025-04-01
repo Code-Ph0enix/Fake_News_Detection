@@ -4,8 +4,26 @@ import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
 
+// Define an interface for each quiz question
+interface QuizQuestion {
+  title: string;
+  isReal: boolean;
+}
+
+// Extend the Button variant type to include "success"
+type ExtendedButtonVariant =
+  | "link"
+  | "default"
+  | "destructive"
+  | "outline"
+  | "secondary"
+  | "ghost"
+  | "success"
+  | null
+  | undefined;
+
 // Extended dataset with 50 headlines
-const fullQuizData = [
+const fullQuizData: QuizQuestion[] = [
   { title: "Pope Francis Shocks World, Endorses Donald Trump for President", isReal: false },
   { title: "FBI Agent Suspected in Hillary Email Leaks Found Dead in Apparent Murder-Suicide", isReal: false },
   { title: "Supreme Court Rules in Favor of Marriage Equality", isReal: true },
@@ -61,10 +79,10 @@ const fullQuizData = [
 const QUESTIONS_PER_QUIZ = 10;
 
 export function FakeNewsQuiz() {
-  const [quizQuestions, setQuizQuestions] = useState<typeof fullQuizData>([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
+  const [showResult, setShowResult] = useState<boolean>(false);
   const [lastAnswer, setLastAnswer] = useState<'correct' | 'incorrect' | null>(null);
 
   useEffect(() => {
@@ -76,7 +94,7 @@ export function FakeNewsQuiz() {
   const handleAnswer = (answer: boolean) => {
     const isCorrect = answer === quizQuestions[currentQuestion].isReal;
     setLastAnswer(isCorrect ? 'correct' : 'incorrect');
-    
+
     if (isCorrect) {
       setScore(score + 1);
     }
@@ -106,7 +124,9 @@ export function FakeNewsQuiz() {
       <Card className="p-6 text-center">
         <h3 className="text-2xl font-bold mb-4">Quiz Complete!</h3>
         <div className="mb-6">
-          <p className="text-4xl font-bold text-primary mb-2">{score} / {QUESTIONS_PER_QUIZ}</p>
+          <p className="text-4xl font-bold text-primary mb-2">
+            {score} / {QUESTIONS_PER_QUIZ}
+          </p>
           <p className="text-muted-foreground">
             You got {score} out of {QUESTIONS_PER_QUIZ} questions correct!
           </p>
@@ -137,9 +157,13 @@ export function FakeNewsQuiz() {
 
         <div className="grid grid-cols-2 gap-4">
           <Button
-            variant={lastAnswer === 'correct' && quizQuestions[currentQuestion].isReal ? 'success' : 
-                    lastAnswer === 'incorrect' && !quizQuestions[currentQuestion].isReal ? 'destructive' : 
-                    'outline'}
+            variant={
+              lastAnswer === 'correct' && quizQuestions[currentQuestion].isReal
+                ? "success" as ExtendedButtonVariant
+                : lastAnswer === 'incorrect' && !quizQuestions[currentQuestion].isReal
+                ? "destructive"
+                : "outline"
+            }
             onClick={() => handleAnswer(true)}
             disabled={lastAnswer !== null}
             className="h-20"
@@ -148,9 +172,13 @@ export function FakeNewsQuiz() {
             Real News
           </Button>
           <Button
-            variant={lastAnswer === 'correct' && !quizQuestions[currentQuestion].isReal ? 'success' : 
-                    lastAnswer === 'incorrect' && quizQuestions[currentQuestion].isReal ? 'destructive' : 
-                    'outline'}
+            variant={
+              lastAnswer === 'correct' && !quizQuestions[currentQuestion].isReal
+                ? "success" as ExtendedButtonVariant
+                : lastAnswer === 'incorrect' && quizQuestions[currentQuestion].isReal
+                ? "destructive"
+                : "outline"
+            }
             onClick={() => handleAnswer(false)}
             disabled={lastAnswer !== null}
             className="h-20"
@@ -161,12 +189,16 @@ export function FakeNewsQuiz() {
         </div>
 
         {lastAnswer && (
-          <div className={`p-4 rounded-lg ${
-            lastAnswer === 'correct' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'
-          }`}>
+          <div
+            className={`p-4 rounded-lg ${
+              lastAnswer === 'correct'
+                ? 'bg-green-500/10 text-green-500'
+                : 'bg-red-500/10 text-red-500'
+            }`}
+          >
             <p className="font-medium">
-              {lastAnswer === 'correct' ? 'Correct!' : 'Incorrect!'} 
-              This is {quizQuestions[currentQuestion].isReal ? 'a real' : 'a fake'} news headline.
+              {lastAnswer === 'correct' ? 'Correct!' : 'Incorrect!'} This is{' '}
+              {quizQuestions[currentQuestion].isReal ? 'a real' : 'a fake'} news headline.
             </p>
           </div>
         )}
