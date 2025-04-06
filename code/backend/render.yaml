@@ -1,9 +1,14 @@
 services:
   - type: web
     name: fake-news-backend
-    env: python
+    runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python server.py
+    startCommand: gunicorn server:app
     envVars:
-      - key: FLASK_ENV
-        value: production
+      - key: PYTHON_VERSION
+        value: 3.10
+    plan: free
+    region: singapore
+    branch: main
+    repo: https://github.com/Code-Ph0enix/Fake_News_Detection 
+    rootDir: code/backend
