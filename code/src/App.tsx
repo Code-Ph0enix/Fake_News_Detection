@@ -11,7 +11,7 @@ import { SpeedChallenge } from '@/components/SpeedChallenge';
 import { Leaderboard } from '@/components/Leaderboard';
 import { ModelComparison } from '@/components/ModelComparison';
 
-const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'https://fake-news-detection-gco1.onrender.com';
 
 
 // Define interfaces
